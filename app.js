@@ -29,3 +29,14 @@ document.getElementById("btnService").addEventListener("click", () => {
   if (!base) return (out.textContent = "Pegá la URL del servicio X (ej: https://yyyy.onrender.com)");
   getJson(`${base}/api/frase`, out);
 });
+
+document.getElementById("btnUsuarios").addEventListener("click", () => {
+  const base = normalize(document.getElementById("backendUsuariosUrl").value);
+  const out = document.getElementById("outUsuarios");
+  if (!base)
+    return (out.textContent =
+      "Pegá la URL del backend (ej: https://xxxx.onrender.com)");
+
+  // Endpoint del TP (sin /api)
+  getJson(`${base}/usuarios`, out);
+});
